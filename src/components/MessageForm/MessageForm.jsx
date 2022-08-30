@@ -59,7 +59,7 @@ export class MessageForm extends Component {
         {/* <input name='author' value={author} type="text" placeholder='Author' onChange={this.handleChange} /> */}
         <TextField label="Text" name='text' value={text} onChange={this.handleChange} onKeyDown={this.handleEnterDown} />
         {/* <textarea name='text' value={text} cols="20" rows="3" placeholder='Text' onChange={this.handleChange} onKeyDown={this.handleEnterDown}></textarea> */}
-        <Fab onClick={this.handleButtonSend} variant="contained" color="primary" ><SendIcon/></Fab>
+        <Fab onClick={this.handleButtonSend} color="primary" ><SendIcon/></Fab>
         {/* <Button onClick={this.handleButtonSend} variant="contained" color="primary" >Send</Button> */}
 
       </div>

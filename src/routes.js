@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Messenger } from 'components/Messenger';
 import { AboutPage } from 'pages/AboutPage';
 
@@ -6,7 +8,7 @@ export const routes = [
   {
     path: '/',
     exact: true,
-    component: Messenger
+    component:  <Messenger />
   },
   {
     path: '/about',
@@ -16,6 +18,6 @@ export const routes = [
   {
     path: '/chats/:id',
     exact: true,
-    component: Messenger
+    component:  <Messenger />
   },
 ]

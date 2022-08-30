@@ -75,17 +75,21 @@ export class Messenger extends Component {
    */
   componentDidUpdate() {
 
-    this.interval = setInterval(() => {
+    if (this.state.messages) {
 
-      let { author } = this.state.messages[this.state.messages.length - 1];
+      this.interval = setInterval(() => {
 
-      if (author !== 'Бот') {
-        this.setState({
-          messages: this.state.messages.concat({ text: `Привет, ${author}. Это сообщение от бота.`, author: 'Бот' }),
-        })
-      }
+        let { author } = this.state.messages[this.state.messages.length - 1];
 
-    }, 1000);
+        if (author !== 'Бот') {
+          this.setState({
+            messages: this.state.messages.concat({ text: `Привет, ${author}. Это сообщение от бота.`, author: 'Бот' }),
+          })
+        }
+
+      }, 1000);
+      
+    }
 
   }
 
@@ -103,26 +107,26 @@ export class Messenger extends Component {
     let { messages } = this.state;
     return (
       <div className='messenger'>
-        {/* <div className='layout'> */}
-          <List>
-            <ListItem>
-              <Link to='/chats/1'>
-                <ListItemText primary='Chat 1' />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link to='/chats/2'>
-                <ListItemText primary='Chat 2' />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link to='/chats/3'>
-                <ListItemText primary='Chat 3' />
-              </Link>
-            </ListItem>
-          </List>
-          <MessagesList items={messages} />
-        {/* </div> */}
+        <div className='layout'>
+        <List>
+          <ListItem>
+            <Link to='/chats/1'>
+              <ListItemText primary='Chat 1' />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/chats/2'>
+              <ListItemText primary='Chat 2' />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to='/chats/3'>
+              <ListItemText primary='Chat 3' />
+            </Link>
+          </ListItem>
+        </List>
+        <MessagesList items={messages} />
+        </div>
         <MessageForm onsend={this.handleSend} />
       </div>
     );
