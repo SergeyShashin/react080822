@@ -10,12 +10,11 @@ import { routes } from './routes';
 
 ReactDom.render(
   <BrowserRouter>
-    <Routes>      
-      {routes.map((route, idx )=> {
-        <Route key={idx} {...route} />
+    <Routes>
+      {routes.map((route, idx) => {
+        <Route key={idx} exact={route.exact} path={route.path} element={route.component} />
       })}
     </Routes>
-    <Messenger/>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

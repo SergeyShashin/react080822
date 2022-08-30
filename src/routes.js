@@ -5,17 +5,17 @@ import { AboutPage } from 'pages/AboutPage';
 export const routes = [
   {
     path: '/',
-    exist: true,
+    exact: true,
     component: Messenger
   },
   {
     path: '/about',
-    exist: true,
+    exact: true,
     component: AboutPage
   },
   {
     path: '/chats/:id',
-    exist: true,
+    exact: true,
     component: Messenger
   },
 ]
